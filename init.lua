@@ -33,7 +33,7 @@ function check_wifi()
       local highLevelSwitch = gpio.read(5)
       local lowLevelSwitch = gpio.read(6)
       local waterlevel = adc.read(0)
-      local waterlevelpercent = waterlevel * PERCENT
+      local waterlevelpercent = (waterlevel - MIN_LEVEL) * PERCENT
       local n = node.heap()
       local times = timesRunned
       local time = rtctime.get()
